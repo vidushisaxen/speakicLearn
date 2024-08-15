@@ -5,9 +5,9 @@ import { toDateString } from "@/utils/dateString";
 
 type ActiveDays = Set<DateString>;
 
-const addActiveDay = (activeDays: ActiveDays, day: dayjs.Dayjs): ActiveDays => {
-  return new Set([...activeDays, toDateString(day)]);
-};
+// const addActiveDay = (activeDays: ActiveDays, day: dayjs.Dayjs): ActiveDays => {
+//   return new Set([activeDays, toDateString(day)]);
+// };
 
 const isActiveDay = (activeDays: ActiveDays, day: dayjs.Dayjs): boolean => {
   return activeDays.has(toDateString(day));
@@ -38,7 +38,7 @@ export const createStreakSlice: BoundStateCreator<StreakSlice> = (
   streak: 0,
   isActiveDay: (day: dayjs.Dayjs) => isActiveDay(get().activeDays, day),
   addToday: () => {
-    const activeDays = addActiveDay(get().activeDays, dayjs());
-    set({ activeDays, streak: getCurrentStreak(activeDays) });
+    // const activeDays = addActiveDay(get().activeDays, dayjs());
+    // set({ activeDays, streak: getCurrentStreak(activeDays) });
   },
 });
